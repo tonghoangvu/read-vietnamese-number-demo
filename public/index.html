@@ -4,7 +4,9 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>read-vietnamese-number-demo</title>
+		<link rel="icon" href="/favicon.ico">
 		<link rel="stylesheet" href="/style.css">
+		<script src="/script.js" defer></script>
 	</head>
 	<body>
 		<h2>read-vietnamese-number-demo</h2>
@@ -17,5 +19,12 @@
 			<a href="https://www.npmjs.com/package/read-vietnamese-number"
 				target="_blank" rel="noreferrer">NPM</a>.
 		</p>
+		<div>
+			<label for="number">Nhập số cần đọc</label>
+			<input type="text" id="number" autofocus
+				placeholder="Ví dụ -3.14 hoặc 123456">
+			<button id="submit">Đọc số</button>
+			<p id="message"></p>
+		</div>
 	</body>
 </html>
