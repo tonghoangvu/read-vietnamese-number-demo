@@ -1,3 +1,5 @@
+'use strict'
+
 const express = require('express')
 const rvn = require('read-vietnamese-number')
 
