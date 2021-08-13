@@ -1,0 +1,17 @@
+{
+	"name": "read-vietnamese-number-demo",
+	"version": "1.0.0",
+	"description": "Web demo thư viện đọc số thành chữ trong Tiếng Việt",
+	"main": "src/index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/tonghoangvu/read-vietnamese-number-demo.git"
+	},
+	"author": "tonghoangvu <tonghoangvu@outlook.com>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/tonghoangvu/read-vietnamese-number-demo/issues"
+	},
+	"homepage": "https://github.com/tonghoangvu/read-vietnamese-number-demo#readme",
+	"scripts": {}
+}

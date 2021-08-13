@@ -1,0 +1,10 @@
+# Project
+TODO
+*.env
+
+# Temp
+node_modules/
+.DS_Store
+thumbs.db
+desktop.ini
+*.log
