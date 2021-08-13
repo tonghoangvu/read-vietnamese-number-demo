@@ -13,5 +13,12 @@
 		"url": "https://github.com/tonghoangvu/read-vietnamese-number-demo/issues"
 	},
 	"homepage": "https://github.com/tonghoangvu/read-vietnamese-number-demo#readme",
-	"scripts": {}
+	"scripts": {
+		"dev": "node src/index"
+	},
+	"dependencies": {
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"read-vietnamese-number": "^1.5.3"
+	}
 }
