@@ -15,14 +15,18 @@ router.get('/read', (req, res) => {
 
 	if (number === undefined)
 		return res.json(ApiResponse(false, 'Nothing to read'))
-	if (number.length > 20)
-		return res.json(ApiResponse(false, 'Number too long'))
 
-	const numberData = rvn.parseNumberData(config, number)
-	if (numberData === null)
-		return res.json(ApiResponse(false, 'Invalid number'))
-
-	return res.json(ApiResponse(true, rvn.readNumber(config, numberData)))
+	try {
+		const numberData = rvn.parseNumberData(config, number)
+		return res.json(ApiResponse(true, rvn.readNumber(config, numberData)))
+	} catch (e) {
+		if (e instanceof rvn.InvalidNumberError)
+			return res.json(ApiResponse(false, 'Invalid number'))
+		else if (e instanceof rvn.UnitNotEnoughError)
+			return res.json(ApiResponse(false, 'Unit not enough'))
+		else
+			return res.status(500).json(ApiResponse(false, 'Unknown error'))
+	}
 })
 
 module.exports = router
