@@ -15,6 +15,8 @@ router.get('/read', (req, res) => {
 
 	if (number === undefined)
 		return res.json(ApiResponse(false, 'Nothing to read'))
+	if (number.length > 20)
+		return res.json(ApiResponse(false, 'Number too long'))
 
 	const numberData = rvn.parseNumberData(config, number)
 	if (numberData === null)
