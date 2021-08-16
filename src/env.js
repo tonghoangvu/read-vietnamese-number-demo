@@ -2,10 +2,13 @@
 
 const dotenv = require('dotenv')
 
-const envStatus = dotenv.config()
-if (envStatus.error) {
-	console.error('File .env not found')
-	process.exit(1)
-}
+dotenv.config()
+
+const REQUIRED_ENV_VARS = ['PORT']
+for (const ENV_VAR of REQUIRED_ENV_VARS)
+	if (process.env[ENV_VAR] === undefined) {
+		console.error(`Missing required environment variable: ${ENV_VAR}`)
+		process.exit(1)
+	}
 
 module.exports = process.env
