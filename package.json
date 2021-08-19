@@ -2,17 +2,17 @@
 	"name": "read-vietnamese-number-demo",
 	"version": "1.0.0",
 	"description": "Web demo thư viện đọc số thành chữ trong Tiếng Việt",
-	"main": "src/index.js",
+	"private": true,
+	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/tonghoangvu/read-vietnamese-number-demo.git"
+		"url": "https://github.com/tonghoangvu/read-vietnamese-number-demo.git"
 	},
-	"author": "tonghoangvu <tonghoangvu@outlook.com>",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/tonghoangvu/read-vietnamese-number-demo/issues"
+	"author": {
+		"name": "Tong Hoang Vu",
+		"email": "tonghoangvu@outlook.com",
+		"url": "https://github.com/tonghoangvu"
 	},
-	"homepage": "https://github.com/tonghoangvu/read-vietnamese-number-demo#readme",
 	"scripts": {
 		"dev": "node src/index",
 		"lint": "eslint --ignore-path .gitignore ."
@@ -23,7 +23,7 @@
 		"express-rate-limit": "^5.3.0",
 		"helmet": "^4.6.0",
 		"hpp": "^0.2.3",
-		"read-vietnamese-number": "^1.6.1"
+		"read-vietnamese-number": "^1.6.2"
 	},
 	"devDependencies": {
 		"eslint": "^7.32.0"
