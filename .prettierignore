@@ -1,0 +1,16 @@
+# Prettier CLI skips node_modules by default
+
+# Prettier
+*.html
+
+# Folders
+node_modules/
+
+# Files
+TODO
+*.env
+*.log
+
+# System files
+.DS_Store
+thumbs.db
