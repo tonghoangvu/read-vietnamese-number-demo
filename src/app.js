@@ -13,10 +13,12 @@ app.use(express.json())
 
 // Security
 app.disable('x-powered-by')
-app.use(helmet({
-	// Disable auto upgrade insecure request
-	contentSecurityPolicy: false
-}))
+app.use(
+	helmet({
+		// Disable auto upgrade insecure request
+		contentSecurityPolicy: false
+	})
+)
 app.use(hpp())
 
 // Rate limiting

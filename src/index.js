@@ -9,5 +9,5 @@ app.use(logger)
 app.use('/api', apiRouter)
 
 app.listen(env.PORT, () => {
-	console.log(`Server is running at ${ env.PORT }`)
+	console.log(`Server is running at ${env.PORT}`)
 })

@@ -5,12 +5,9 @@ module.exports = {
 		es2021: true,
 		commonjs: true
 	},
-	extends: [
-		'eslint:recommended',
-		'prettier'
-	],
+	extends: ['eslint:recommended', 'prettier'],
 	parserOptions: {
-		'ecmaVersion': 12
+		ecmaVersion: 12
 	},
 	rules: {
 		'no-console': 'off',
@@ -18,18 +15,19 @@ module.exports = {
 		'no-multi-spaces': 'warn',
 		'no-multiple-empty-lines': 'warn',
 		'no-trailing-spaces': 'error',
-		'indent': [
-			'error', 'tab',
+		indent: [
+			'error',
+			'tab',
 			{
-				'SwitchCase': 1,
-				'FunctionDeclaration': {
-					'body': 1,
-					'parameters': 2
+				SwitchCase: 1,
+				FunctionDeclaration: {
+					body: 1,
+					parameters: 2
 				}
 			}
 		],
-		'semi': ['error', 'never'],
-		'quotes': ['error', 'single'],
+		semi: ['error', 'never'],
+		quotes: ['error', 'single'],
 		'linebreak-style': ['error', 'unix'],
 		'brace-style': ['error', '1tbs'],
 		'eol-last': ['error', 'always'],
