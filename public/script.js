@@ -1,39 +1,40 @@
 'use strict'
 
-const submitElement = document.getElementById('submit')
+const startReadingElement = document.getElementById('start-reading')
 const numberElement = document.getElementById('number')
 const messageElement = document.getElementById('message')
 
-numberElement.addEventListener('keyup', onKeyUp)
-submitElement.addEventListener('click', onSubmit)
+startReadingElement.addEventListener('click', startReading())
+numberElement.addEventListener('keyup', event => {
+	if (event.key === 'Enter') startReading()
+})
 
-function onKeyUp(event) {
-	event.preventDefault()
-	if (event.which === 13) onSubmit()
-}
-
-function onSubmit() {
-	const number = numberElement.value
+function buildRequestApiUrl(number) {
 	const url = new URL('/api/read', window.location.origin)
 	url.searchParams.append('number', number)
+	return url
+}
 
-	fetch(url)
+function startReading() {
+	const number = numberElement.value
+	const apiUrl = buildRequestApiUrl(number)
+	fetch(apiUrl)
 		.then(response => {
 			if (!response.ok) throw response
 			return response.json()
 		})
 		.then(parsedJson => {
-			if (parsedJson.ok) setMessage(null, parsedJson.message)
-			else setMessage('orange', parsedJson.message)
+			if (parsedJson.ok) showMessage(null, parsedJson.message)
+			else showMessage('orange', parsedJson.message)
 		})
 		.catch(response => {
-			setMessage('red', `Error ${response.status}: ${response.statusText}`)
+			showMessage('red', `Error ${response.status}: ${response.statusText}`)
 		})
 }
 
-function setMessage(color, message) {
-	// With color, null is reset, undefined is no change
+function showMessage(color, message) {
+	// Color null is reset, undefined is no change
 	if (color === null) messageElement.style.color = ''
 	else messageElement.style.color = color
-	messageElement.innerText = message
+	messageElement.textContent = message
 }

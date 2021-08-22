@@ -19,11 +19,7 @@ module.exports = {
 			'error',
 			'tab',
 			{
-				SwitchCase: 1,
-				FunctionDeclaration: {
-					body: 1,
-					parameters: 2
-				}
+				SwitchCase: 1
 			}
 		],
 		semi: ['error', 'never'],

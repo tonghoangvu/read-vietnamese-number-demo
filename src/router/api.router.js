@@ -12,7 +12,6 @@ function ApiResponse(ok, message) {
 
 router.get('/read', (req, res) => {
 	const number = req.query.number
-
 	if (number === undefined) return res.json(ApiResponse(false, 'Nothing to read'))
 
 	try {
@@ -21,9 +20,9 @@ router.get('/read', (req, res) => {
 	} catch (e) {
 		if (e instanceof rvn.InvalidNumberError)
 			return res.json(ApiResponse(false, 'Invalid number'))
-		else if (e instanceof rvn.UnitNotEnoughError)
+		if (e instanceof rvn.UnitNotEnoughError)
 			return res.json(ApiResponse(false, 'Unit not enough'))
-		else return res.status(500).json(ApiResponse(false, 'Unknown error'))
+		return res.status(500).json(ApiResponse(false, 'Unknown error'))
 	}
 })
 
