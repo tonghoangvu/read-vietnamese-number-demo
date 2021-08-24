@@ -6,7 +6,8 @@
 			"request": "launch",
 			"name": "Launch server",
 			"skipFiles": ["<node_internals>/**"],
-			"program": "${workspaceFolder}\\src\\index.js"
+			"program": "${workspaceFolder}\\src\\index.js",
+			"outputCapture": "std"
 		}
 	]
 }

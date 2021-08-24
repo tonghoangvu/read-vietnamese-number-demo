@@ -4,6 +4,7 @@ const express = require('express')
 const helmet = require('helmet')
 const hpp = require('hpp')
 const rateLimit = require('express-rate-limit')
+const morgan = require('morgan')
 
 const app = express()
 
@@ -28,6 +29,9 @@ const limiter = rateLimit({
 	message: 'Too many requests'
 })
 app.use(limiter)
+
+// Logging
+app.use(morgan(':date[web] - :method :url (:status)'))
 
 // Static files
 app.use(express.static('public'))
