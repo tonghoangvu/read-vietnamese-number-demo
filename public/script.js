@@ -4,7 +4,7 @@ const startReadingElement = document.getElementById('start-reading')
 const numberElement = document.getElementById('number')
 const messageElement = document.getElementById('message')
 
-startReadingElement.addEventListener('click', startReading())
+startReadingElement.addEventListener('click', () => startReading())
 numberElement.addEventListener('keyup', event => {
 	if (event.key === 'Enter') startReading()
 })
