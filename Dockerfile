@@ -1,4 +1,4 @@
-FROM node:14-alpine AS build
+FROM node:16-alpine
 
 WORKDIR /usr/src/read-vietnamese-number-demo
 COPY package.json package-lock.json ./

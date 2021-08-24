@@ -8,3 +8,6 @@ end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
+
+[docker-compose.yml]
+indent_style = space # Docker compose don't like tabs
