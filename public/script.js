@@ -24,17 +24,15 @@ function startReading() {
 			return response.json()
 		})
 		.then(parsedJson => {
-			if (parsedJson.ok) showMessage(null, parsedJson.message)
-			else showMessage('orange', parsedJson.message)
+			if (parsedJson.ok) showMessage('', parsedJson.message)
+			else showMessage('warning', parsedJson.message)
 		})
 		.catch(response => {
-			showMessage('red', `Error ${response.status}: ${response.statusText}`)
+			showMessage('error', `Error ${response.status}: ${response.statusText}`)
 		})
 }
 
-function showMessage(color, message) {
-	// Color null is reset, undefined is no change
-	if (color === null) messageElement.style.color = ''
-	else messageElement.style.color = color
+function showMessage(className, message) {
+	messageElement.className = className
 	messageElement.textContent = message
 }
