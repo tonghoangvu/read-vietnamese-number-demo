@@ -12,7 +12,7 @@ function ApiResponse(ok, message) {
 
 router.get('/read', (req, res) => {
 	const number = req.query.number
-	if (number === undefined) return res.json(ApiResponse(false, 'Nothing to read'))
+	if (!number) return res.json(ApiResponse(false, 'Nothing to read'))
 
 	try {
 		const numberData = rvn.parseNumberData(config, number)
