@@ -1,15 +1,15 @@
-FROM node:16-alpine
+# syntax=docker/dockerfile:1
+FROM node:17-alpine
 
-WORKDIR /usr/src/read-vietnamese-number-demo
-COPY package.json package-lock.json ./
-RUN npm install --production --silent && mv node_modules ../
-COPY . .
+# Without spaces
+ENV NODE_ENV production
+ENV PORT 8081
 
 # Just documenting which ports are used, and nothing else
 EXPOSE 8081
 
-# Without spaces
-ENV NODE_ENV=production
-ENV PORT=8081
-
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm install --production --silent && mv node_modules ../
+COPY . .
 CMD node src/index
