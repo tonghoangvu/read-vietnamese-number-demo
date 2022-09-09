@@ -1,8 +1,14 @@
-version: '3.8'
+version: '3.8' # Must be quoted
 services:
     web:
         # Build image from source in localhost only
         # Use remote image instead in other cases
         build: .
+        # Pass environment variables to container
+        environment:
+            - PORT=${PORT?}
+        expose:
+            - ${PORT?}
         ports:
-            - '8081:8081' # Should be quoted
+            - 8081:${PORT?}
+        restart: on-failure
