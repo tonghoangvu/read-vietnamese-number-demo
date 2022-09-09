@@ -1,15 +1,13 @@
 # syntax=docker/dockerfile:1
-FROM node:17-alpine
 
-# Without spaces
-ENV NODE_ENV production
-ENV PORT 8081
-
-# Just documenting which ports are used, and nothing else
-EXPOSE 8081
-
+# Use LTS version
+FROM node:16.17.0-alpine
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm install --production --silent && mv node_modules ../
+COPY package*.json ./
+
+# Install only production dependencies
+# Use `npm ci` instead of `npm install` to install dependencies
+# https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable
+RUN npm ci --omit=dev && mv node_modules ../
 COPY . .
 CMD node src/index
